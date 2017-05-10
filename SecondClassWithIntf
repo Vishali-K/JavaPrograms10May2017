@@ -1,0 +1,85 @@
+
+package programwithinterface;
+
+/**
+ *
+ * @author cb-vishali
+ */
+
+interface FunctionIntf
+{
+    public void makeCall(int n);
+    public void acceptCall(int n);
+    public void switchOnOff(int n);
+    public void playSong(int n);
+}
+
+
+
+class ProgramWithInterface implements FunctionIntf {
+
+    
+int callKey = 0;
+int acceptKey = 0;
+int switchKey = 1;
+int playKey = 0;
+
+public void makeCall(int value)
+{
+   callKey = value; 
+   if(callKey==0)
+       System.out.println("No call is made");
+   else
+       System.out.println("*Call is made succcessfully");
+}
+
+
+
+public void acceptCall(int value)
+{
+    acceptKey = value;
+    if(acceptKey==0)
+       System.out.println("No call is accepted");
+   else
+       System.out.println("*Call is accepted succcessfully");
+}
+
+public void playSong(int value)
+{
+    playKey = value;
+    if(playKey==0)
+        System.out.println("No song is played");
+    else {
+        if(callKey==1||acceptKey==1||switchKey==0)
+            System.out.println("OOPs..Its busy/switched off right now..play after sometime");
+        else
+        System.out.println("*Its playing song");
+}
+}
+    
+    
+    
+    public static void main(String[] args) {
+        ProgramWithInterface ob = new ProgramWithInterface();
+        ob.playSong(1);
+        ob.playSong(0);
+        ob.acceptCall(1);
+        ob.makeCall(1);
+       // ob.switchOnOff(0);
+        ob.playSong(1);
+    }
+    
+}
+
+
+
+
+
+
+///////
+
+Interface method switchOnOff() is not defined inside the class which implements the Interace.
+
+So " ProgramWithInterface is not abstract and does not override abstract method switchOnOff(int) in FunctionIntf " occurs.
+
+//////
