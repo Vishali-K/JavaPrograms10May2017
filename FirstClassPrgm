@@ -1,0 +1,71 @@
+
+package javaprograms;
+
+/**
+ *
+ * @author cb-vishali
+ */
+
+class Mobile
+{
+
+int callKey = 0;
+int acceptKey = 0;
+int switchKey = 1;
+int playKey = 0;
+
+void makeCall(int value)
+{
+   callKey = value; 
+   if(callKey==0)
+       System.out.println("No call is made");
+   else
+       System.out.println("Call is made succcessfully");
+}
+void acceptCall(int value)
+{
+    acceptKey = value;
+    if(acceptKey==0)
+       System.out.println("No call is accepted");
+   else
+       System.out.println("Call is accepted succcessfully");
+}
+void switchOnOff(int value)
+{
+    switchKey = value;
+    if(switchKey==1)
+       System.out.println("Mobile is switched ON currently");
+   else
+       System.out.println("Switching OFF the mobile");
+}
+void playSong(int value)
+{
+    playKey = value;
+    if(playKey==0)
+        System.out.println("No song is played");
+    else {
+        if(callKey==1||acceptKey==1||switchKey==0)
+            System.out.println("OOPs..Its busy/switched  right now..play after sometime");
+        else
+        System.out.println("Its playing song");
+}
+}
+}
+
+
+public class JavaPrograms {
+
+    
+    public static void main(String[] args) {
+      
+        Mobile ob = new Mobile();
+        ob.playSong(1);
+        ob.playSong(0);
+        ob.acceptCall(1);
+        ob.makeCall(1);
+        ob.switchOnOff(0);
+        ob.playSong(1);
+        
+    }
+    
+}
